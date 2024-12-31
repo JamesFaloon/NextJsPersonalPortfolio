@@ -1,9 +1,9 @@
 'use client'
 
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import { Card, CardContent, CardMedia, CardHeader, Typography, Button, CardActions, TextField } from "@mui/material";
 import Like from './like'
-
+import { useRouter } from 'next/navigation';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 
@@ -14,22 +14,17 @@ export default function ProjectsPage({projectsJson, contentJson}) {
     let [projects, setProjects] = useState(projectsJson);
     const [content, setContent] = useState(contentJson);
     let [like, setLike] = useState([false, false, false, false, false])
+    const router = useRouter();
 
+    
 
     function filter(e) {
-    
         const filter =  projects.filter((project) => {
-          return project.title.toLowerCase().substring(0, e.target.value.length) === e.target.value.toLowerCase() ? true : false;
-    
-            
-          
-    
+          return project.title.toLowerCase().substring(0, e.target.value.length) === e.target.value.toLowerCase() ? true : false;    
         })
-    
         setValue(e.target.value);
-        setFilteredProjects(filter);
-      
-    
+        setFilteredProjects(filter); 
+         
       }
 
 
@@ -37,8 +32,8 @@ export default function ProjectsPage({projectsJson, contentJson}) {
         console.log(i);
         let toggleLikes = like.map((like, j) => i === j ? !like : like)
         setLike(toggleLikes);
-
     }
+
 
 
     return (
