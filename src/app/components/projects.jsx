@@ -14,9 +14,22 @@ export default function ProjectsPage({projectsJson, contentJson}) {
     let [projects, setProjects] = useState(projectsJson);
     const [content, setContent] = useState(contentJson);
     let [like, setLike] = useState([false, false, false, false, false])
-    const router = useRouter();
-
     
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      let storedLikes = localStorage.getItem('likes');
+      if (storedLikes) {
+        setLike(JSON.parse(storedLikes));
+      }
+    }
+    
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('likes', JSON.stringify(like));
+  }, [like]);
+
 
     function filter(e) {
         const filter =  projects.filter((project) => {
