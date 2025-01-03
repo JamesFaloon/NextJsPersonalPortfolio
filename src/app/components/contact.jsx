@@ -12,7 +12,7 @@ export default function Contact({contact}) {
             </section>
 
 
-            <div className="border-2 border-black"> </div>
+            <div className="border-2 dark:border-b-[#D3D3D3] border-b-black"> </div>
         </>
     )
 }

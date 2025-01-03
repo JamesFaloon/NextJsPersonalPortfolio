@@ -117,6 +117,8 @@ export default function ProjectsPage({projectsJson, contentJson}) {
 
       
         </main>
+
+        <div className="border-2 dark:border-b-[#D3D3D3] border-b-black"> </div>
         </>
 
     )

@@ -8,7 +8,7 @@ export default function About({about}) {
                 <h1 className="text-5xl pb-3"> {about.title} </h1>
                 <p> {about.description} </p>
             </section>  
-            <div className="border-2 border-black"> </div>
+            <div className="border-2 dark:border-b-[#D3D3D3] border-b-black"> </div>
         </>
     )
 }
