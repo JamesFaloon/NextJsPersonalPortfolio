@@ -1,4 +1,7 @@
+import { promises as fs } from 'fs';
+
 export default async function loadProjects() {
-    const data = await fetch("http://localhost:3000/data/project.json");
-    return data.json();
+    const file = await fs.readFile(process.cwd() + '/public/data/project.json')
+    const data = JSON.parse(file);
+    return data;
 }
