@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { CheckBox } from "@mui/icons-material";
 import Header from "./components/header";
 import Nav from "./components/nav";
 import About from "./components/about";
@@ -33,18 +32,18 @@ export default async function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        
+
       >
         <ThemeProvider>
-          <Header header={res.header} /> 
-          <Nav nav={res.nav}/>
-          <About about={res.about}/>
+          <Header header={res.header} />
+          <Nav nav={res.nav} />
+          <About about={res.about} />
           {children}
-          <Contact contact={res.contact}/>
-          <Footer footer={res.footer}/>
+          <Contact contact={res.contact} />
+          <Footer footer={res.footer} />
           <ThemeToggle />
         </ThemeProvider>
-        
+
       </body>
     </html>
   );
