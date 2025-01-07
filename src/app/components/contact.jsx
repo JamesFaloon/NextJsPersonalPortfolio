@@ -3,9 +3,9 @@ export default function Contact({ contact }) {
         <>
             <section className="dark:bg-[#454545] dark:text-white bg-white text-black">
                 <h1 className="text-5xl"> {contact.title} </h1>
-                <ul>
+                <ul className="list-disc pl-5">
                     {contact.socials.map((items, id) => {
-                        return <li key={id}> {items} {contact.links[id]}</li>
+                        return <li key={id}> <a href={contact.links[id]} className="underline text-blue-500"> {items} </a> </li>
                     })}
                 </ul>
                 <br></br>

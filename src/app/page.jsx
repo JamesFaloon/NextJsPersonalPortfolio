@@ -6,11 +6,11 @@ import ProjectsPage from "./components/projects"
 
 
 export default async function Home() {
- const contentData = await loadJsonData();
- const projectsData = await loadProjects();
+    const contentData = await loadJsonData();
+    const projectsData = await loadProjects();
 
- return (
-  <ProjectsPage contentJson={contentData.project} projectsJson={projectsData.projects} />
- )
-  
+    return (
+        <ProjectsPage contentJson={contentData.project} projectsJson={projectsData.projects} number={projectsData.projects.length} />
+    )
+
 }

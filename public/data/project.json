@@ -11,8 +11,7 @@
       ],
       "actions": [
         "play",
-        "see-code",
-        "go-to-project"
+        "see-code"
       ]
     },
     {
@@ -24,8 +23,7 @@
         "https://github.com/JamesFaloon/School-Management-System-Database-"
       ],
       "actions": [
-        "see-code",
-        "go-to-project"
+        "see-code"
       ]
     },
     {
@@ -37,8 +35,7 @@
         "https://github.com/JamesFaloon/eng-intern-challenge/tree/submission/python"
       ],
       "actions": [
-        "see-code",
-        "go-to-project"
+        "see-code"
       ]
     },
     {
@@ -50,8 +47,7 @@
         "https://github.com/JamesFaloon/filestatics"
       ],
       "actions": [
-        "see-code",
-        "go-to-project"
+        "see-code"
       ]
     },
     {
@@ -63,8 +59,7 @@
         "https://github.com/JamesFaloon/create_vpcs"
       ],
       "actions": [
-        "see-code",
-        "go-to-project"
+        "see-code"
       ]
     }
   ]

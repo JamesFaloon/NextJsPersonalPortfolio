@@ -1,14 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import { Card, CardContent, CardMedia, CardHeader, Typography, Button, CardActions, TextField, InputLabel } from "@mui/material";
-import Like from './like'
-import { useRouter } from 'next/navigation';
+import { Card, CardContent, CardMedia, CardHeader, Typography, Button, CardActions, TextField } from "@mui/material";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 
 
-export default function ProjectsPage({ projectsJson, contentJson }) {
+export default function ProjectsPage({ projectsJson, contentJson, number }) {
   let [value, setValue] = useState("");
   const [filteredProjects, setFilteredProjects] = useState(projectsJson);
   let [projects, setProjects] = useState(projectsJson);
@@ -16,7 +14,7 @@ export default function ProjectsPage({ projectsJson, contentJson }) {
   let [like, setLike] = useState([false, false, false, false, false])
 
 
-
+  // when the profoltio mounts check what projects were liked 
   useEffect(() => {
     if (typeof window !== "undefined") {
       let storedLikes = localStorage.getItem('likes');
@@ -27,11 +25,14 @@ export default function ProjectsPage({ projectsJson, contentJson }) {
 
   }, []);
 
+
+  // when someone changes the value of a like update the local storage
   useEffect(() => {
     localStorage.setItem('likes', JSON.stringify(like));
   }, [like]);
 
 
+  // when someone types into filter projects text filed filter the projects based on the code that they typed 
   function filter(e) {
     const filter = projects.filter((project) => {
       return project.title.toLowerCase().substring(0, e.target.value.length) === e.target.value.toLowerCase() ? true : false;
@@ -42,6 +43,7 @@ export default function ProjectsPage({ projectsJson, contentJson }) {
   }
 
 
+  // when someone likes or unlikes change the current variable 
   function toggleLike(i) {
     console.log(i);
     let toggleLikes = like.map((like, j) => i === j ? !like : like)
@@ -81,10 +83,10 @@ export default function ProjectsPage({ projectsJson, contentJson }) {
                   image={project.image}
                   alt={project.title}
                   sx={{
-                    width: '95%', // Ensures the image takes full width of the container
-                    objectFit: 'contain', // Prevents the image from being cropped while maintaining aspect ratio
-                    border: '1px solid black', // Adds a border around the imag
-                    padding: '20px', // Resets any internal padding
+                    width: '95%',
+                    objectFit: 'contain',
+                    border: '1px solid black',
+                    padding: '20px',
                   }}
                 />
                 <CardContent>
@@ -109,6 +111,9 @@ export default function ProjectsPage({ projectsJson, contentJson }) {
 
 
                   })}
+
+                  {/* Button feature if all the projects are being shown show button to go to indivual project else have a button to show all projects*/}
+                  {filteredProjects.length < number ? <Button href="/" variant="contained" color="primary"> See all Projects </Button> : <Button href={"/projects/" + project.projectId} variant="contained" color="primary"> Go to Project </Button>}
 
 
                   {like[project.projectId - 1] ? <ThumbUpIcon onClick={() => { toggleLike(project.projectId - 1) }}> </ThumbUpIcon>
