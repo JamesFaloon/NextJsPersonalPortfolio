@@ -3,7 +3,7 @@
     {
       "projectId": 1,
       "title": "JS Falling Game with Galaga Theme",
-      "image": "/images/Javascript.PNG",
+      "image": "/images/javascript.PNG",
       "description": "I utilized a new framework called Zim to program a game with a Galaga theme. Developed and designed game mechanics such as the enemies' descent using the interval function in Zim. I also implemented a shooting system with container objects and the hitTestCircles method in Zim. Combined all these elements together to receive a 100% grade.",
       "links": [
         "https://jamesfaloon.github.io/JS-Falling-Game-with-Galaga-Theme/src/game.html",
